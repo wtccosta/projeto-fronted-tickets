@@ -9,6 +9,7 @@ const Routes = () => (
   <Router history={history}>
     <Navbar />
     <Switch>
+      <Redirect from="/" to="/openform/info" exact />
       <Route path="/" exact>
         <Home />
       </Route>

@@ -6,7 +6,6 @@
 }
 
 .openform-content {
-    display: flex;
     padding: 20px;
 }
 
@@ -16,8 +15,9 @@
         align-items: unset;
     }
     .openform-content {
+        display: flex;
         flex: 1;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
