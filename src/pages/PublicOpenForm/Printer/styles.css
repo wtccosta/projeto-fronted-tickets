@@ -1,0 +1,10 @@
+.text-justify {
+    font-size: 12px;
+    text-align: justify;
+}
+
+@media (min-width: 400px) {
+    .text-justify {
+        font-size: 0.9em;
+    }
+}

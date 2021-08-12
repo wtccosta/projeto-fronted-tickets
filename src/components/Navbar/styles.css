@@ -1,0 +1,38 @@
+.nav-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 20px
+}
+
+.main-image-nav img {
+    display: none;
+}
+
+@media (min-width: 480px) {
+    .nav-brand {
+        font-size: 22px
+    }
+}
+
+@media (min-width: 763px) {
+    .navbar {
+        margin-bottom: 30px;
+    }
+    .nav-container {
+        justify-content: space-between;
+        padding: 5px 50px;
+    }
+    .nav-brand {
+        font-size: 1.4em
+    }
+    .main-image-nav img {
+        display: unset;
+        height: 40px;
+        width: auto;
+    }
+}

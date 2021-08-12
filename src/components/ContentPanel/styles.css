@@ -1,0 +1,128 @@
+.main-image-home {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.main-image-home .svg {
+    width: 320px;
+}
+
+.content-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    /* margin: 0; */
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    /* margin: 0; */
+    width: 100%;
+}
+
+.card-header {
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 10px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #04213F;
+}
+
+.card-title {
+    margin-bottom: 10px;
+    padding: 5px auto 5px auto;
+    font-size: 15px;
+    color: #12EA27;
+}
+
+.card-questions {
+    min-width: 200px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.sti-logo {
+    /* margin: -15px; */
+    padding: 0;
+    height: 120px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sti-logo img {
+    height: 130px;
+}
+
+@media (min-width: 480px) {
+    .main-image-home {
+        padding: 20px;
+    }
+    .card-header {
+        font-size: 13px;
+    }
+    .card-title {
+        margin: 10px 5px 25px 10px;
+        font-size: 16px;
+    }
+    .form-check-label {
+        font-size: 15px;
+    }
+    .sti-logo {
+        margin: 5px;
+    }
+    .sti-logo img {
+        margin-bottom: 20px;
+        height: 140px;
+    }
+}
+
+@media (min-width: 600px) {
+    .principal {
+        width: 600px;
+    }
+    .card * {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 763px) {
+    .card {
+        margin-top: -25px;
+    }
+    .main-image-home {
+        display: none;
+    }
+    .sti-logo {
+        /* margin-bottom: 100px; */
+        height: 140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .card {
+        margin-top: unset;
+    }
+}

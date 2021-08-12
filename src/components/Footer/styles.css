@@ -1,0 +1,24 @@
+.footer-container {
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #04213F;
+    font-size: 9px;
+    font-weight: 700;
+    color: #FFFCFC;
+}
+
+@media (min-width: 440px) {
+    .footer-container{
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 576px) {
+    .footer-container {
+        padding: 10px 50px;
+        font-size: 0.9em;
+    }
+}

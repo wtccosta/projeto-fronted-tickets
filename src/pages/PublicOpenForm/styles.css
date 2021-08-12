@@ -1,0 +1,64 @@
+.main-image-home {
+    padding: 10px 20px;
+}
+
+.main-image-home svg {
+    height: 40px;
+}
+
+.container {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.sti-logo {
+    margin: -15px;
+    padding: 0;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sti-logo img {
+    height: 130px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    .main-image-home svg {
+        height: 100px;
+    }
+    .sti-logo {
+        margin: 5px;
+    }
+    
+    .sti-logo img {
+        margin-bottom: 20px;
+        height: 140px;
+    }
+}
+
+@media (min-width: 763px) {
+    .main-image-home {
+        display: none;
+    }
+}
