@@ -8,16 +8,25 @@ import './styles.css';
 const Home = () => {
 
   const questions: string[] = [
-    'computador',
+    'computador (manutenção em geral, instalação física e de programas)',
     'impressora',
     'sistemas',
-    'telefonia',
-    'infraestrutura',
+    'telefonia ou internet',
+    'infraestrutura (cabeamento)',
   ];
 
   const handleClick = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
-    history.push(e.currentTarget.name);
+    if (e.currentTarget.name === 'computador'){
+       history.push('/openform/computer'); 
+    }
+    if (e.currentTarget.name === 'impressora') {
+      history.push('/openform/printer');
+    }
+    if (e.currentTarget.name === 'sistemas') {
+      history.push('/openform/system');
+    }
+    
   };
 
   return (

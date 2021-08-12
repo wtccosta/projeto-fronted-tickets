@@ -22,7 +22,7 @@ const ContentPanel = ({ children, inf, cat }: Props) => {
         <div className="card principal">
           <div className="card-header">{inf}</div>
           <div className="card-body">
-            <h5 className="card-title">{cat}</h5>
+            <div className="card-title">{cat}</div>
             <div className="card-questions">{children}</div>
           </div>
         </div>

@@ -1,19 +1,25 @@
 import MainImageNav from 'assets/images/main-image-negative.png';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
 
 
 const Navbar = () => {
+  const [isAuthenticated] = useState<boolean>(false);
   return (
     <nav className="navbar navbar-dark bg-primary text-white">
       <div className="nav-container">
         <div className="nav-brand">
-          <Link to="/">Abertura de Chamados - STIC</Link>
+          {isAuthenticated ? (
+            <Link to="/dashboard">Sistema de Chamados</Link>
+          ) : (
+            <Link to="/openform">Abertura de Chamados</Link>
+          )}
         </div>
         <div className="main-image-nav">
-          <a href="https://www.corumba.ms.gov.br">
+          <Link to="/">
             <img src={MainImageNav} alt="logo-pmc" />
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

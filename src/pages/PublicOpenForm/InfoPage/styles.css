@@ -1,0 +1,26 @@
+.card-info-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    padding: 10px;
+}
+
+.card-info-page p {
+    font-size: 12px;
+    text-align: justify;
+}
+
+.for-desktop {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .for-desktop {
+        display: unset;
+    }
+    .for-mobile {
+        display: none;
+    }
+}
