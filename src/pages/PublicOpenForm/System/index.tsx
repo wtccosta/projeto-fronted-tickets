@@ -21,7 +21,7 @@ const System = () => {
   } = useForm<Ticket>();
 
   const assembleContent = (formData: Ticket) => {
-    return `<h3>Problema com ${formData.group}</h3><strong>Chamado aberto por</strong>: ${formData.name}<br>
+    return `<h3>Problema para o grupo ${formData.group}</h3><strong>Chamado aberto por</strong>: ${formData.name}<br>
     <strong>Sistema com erro</strong>: ${formData.systemName} <br>
     <strong>Nome de usuário do sistema</strong>: ${formData.userSystemName} <br>
     <strong>Local de Atendimento</strong>: ${formData.place} <br>

@@ -22,7 +22,7 @@ const Computer = () => {
   } = useForm<Ticket>();
 
   const assembleContent = (formData: Ticket) => {
-    return `<h3>Problema com ${formData.group}</h3><strong>Chamado aberto por</strong>: ${formData.name} <br>
+    return `<h3>Problema para o grupo ${formData.group}</h3><strong>Chamado aberto por</strong>: ${formData.name} <br>
     <strong>Local de Atendimento</strong>: ${formData.place} <br>
     <strong>Telefone para contato</strong>: ${formData.phone} <br>
     <strong>E-mail</strong>: ${formData.email} <br>
