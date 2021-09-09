@@ -2,10 +2,12 @@ import './styles.css';
 
 type Props = {
   ticketId: number |  null;
+  firstTimeProps: boolean;
 };
 
-const EndMessage = ({ ticketId }: Props) => {
+const EndMessage = ({ ticketId, firstTimeProps}: Props) => {
   return (
+    !firstTimeProps ? (
     <div className="end-message-content ">
       <div className="card text-dark bg-success mt-5 end-card">
         <h5 className="card-title text-dark mt-3 mb-3">
@@ -20,7 +22,7 @@ const EndMessage = ({ ticketId }: Props) => {
           Interação finalizada. Feche esta página.
         </p>
       </div>
-    </div>
+    </div>) : null
   );
 };
 export default EndMessage;

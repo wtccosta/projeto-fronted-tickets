@@ -6,7 +6,7 @@ import System from './System';
 
 import './styles.css';
 import InfoPage from './InfoPage';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { requestBackendLogin } from 'util/requests';
 import { saveAuthData } from 'util/storage';
 import { AuthContext } from 'util/AuthContext';
@@ -18,6 +18,7 @@ import Infraestructure from './Infraestructure';
 const PublicOpenForm = () => {
 
   const { authContextData, setAuthContextData } = useContext(AuthContext);
+  const [ firstTime, setFirstTime ] = useState<boolean>(true);
 
   useEffect(() => {
     requestBackendLogin().then((response) => {
@@ -25,13 +26,14 @@ const PublicOpenForm = () => {
       setAuthContextData({
         authenticated: true,
       })
+       setFirstTime(false);
     });
   }, [setAuthContextData])
 
   return (
     <div className="openform-container">
      
-      { authContextData.authenticated ? ( 
+      { (authContextData.authenticated )? ( 
       <>
       
       <Navbar />
@@ -57,7 +59,7 @@ const PublicOpenForm = () => {
         </Route>
       </Switch>
       </div>
-      </>)  : <EndMessage ticketId={authContextData.ticketId ? authContextData.ticketId : null} />
+      </>)  : <EndMessage ticketId={authContextData.ticketId ? authContextData.ticketId : null} firstTimeProps={firstTime} />
   }
     </div>
   );
