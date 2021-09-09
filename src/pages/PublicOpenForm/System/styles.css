@@ -10,6 +10,11 @@ label {
     font-size: 10px;
 }
 
+.right-fields{
+    width: 100%;
+
+}
+
 /* Hidden number input scroll on Chrome 
 and others */
 
@@ -24,8 +29,14 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-@media (min-width: 476px) {
+@media (min-width: 768px) {
     .ocurrence-input-description {
         font-size: 15px;
     }
+
+    .system-form input{
+        /* margin-left: 5px; */
+        max-width:300px;
+    }
+    
 }

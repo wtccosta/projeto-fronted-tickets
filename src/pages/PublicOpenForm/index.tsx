@@ -6,12 +6,34 @@ import System from './System';
 
 import './styles.css';
 import InfoPage from './InfoPage';
+import { useContext, useEffect } from 'react';
+import { requestBackendLogin } from 'util/requests';
+import { saveAuthData } from 'util/storage';
+import { AuthContext } from 'util/AuthContext';
+import EndMessage from './EndMessage';
+import Telephone from './Telephone';
+import Infraestructure from './Infraestructure';
 
 
 const PublicOpenForm = () => {
 
+  const { authContextData, setAuthContextData } = useContext(AuthContext);
+
+  useEffect(() => {
+    requestBackendLogin().then((response) => {
+      saveAuthData(response.data);
+      setAuthContextData({
+        authenticated: true,
+      })
+    });
+  }, [setAuthContextData])
+
   return (
     <div className="openform-container">
+     
+      { authContextData.authenticated ? ( 
+      <>
+      
       <Navbar />
        <div className="openform-content">
       <Switch>
@@ -27,8 +49,16 @@ const PublicOpenForm = () => {
         <Route path="/openform/system">
           <System />
         </Route>
+        <Route path="/openform/phone">
+          <Telephone />
+        </Route>
+        <Route path="/openform/infraestruture">
+          <Infraestructure />
+        </Route>
       </Switch>
       </div>
+      </>)  : <EndMessage ticketId={authContextData.ticketId ? authContextData.ticketId : null} />
+  }
     </div>
   );
 };

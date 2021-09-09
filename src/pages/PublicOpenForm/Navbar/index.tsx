@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './styles.css';
 
 const Navbar = () =>{
@@ -21,12 +21,12 @@ const Navbar = () =>{
             </NavLink>
           </li>
           <li>
-            <NavLink to="/openform/data" className="admin-nav-item">
+            <NavLink to="/openform/phone" className="admin-nav-item">
               <p>Telefonia</p>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/openform/infraestructure" className="admin-nav-item">
+            <NavLink to="/openform/infraestruture" className="admin-nav-item">
               <p>Infraestrutura</p>
             </NavLink>
           </li>

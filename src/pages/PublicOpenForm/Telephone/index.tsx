@@ -3,13 +3,14 @@ import ContentPanel from 'components/ContentPanel';
 
 import './styles.css';
 import { Ticket } from 'types/Ticket';
+import { requestBackend } from 'util/requests';
 import { AxiosRequestConfig } from 'axios';
 import { useContext, useState } from 'react';
 import { AuthContext } from 'util/AuthContext';
-import { requestBackend } from 'util/requests';
 import { removeAuthData } from 'util/storage';
 import TicketLoader from '../TicketLoader';
-const System = () => {
+
+const Telephone = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { setAuthContextData } = useContext(AuthContext);
 
@@ -21,19 +22,15 @@ const System = () => {
   } = useForm<Ticket>();
 
   const assembleContent = (formData: Ticket) => {
-    return `<h3>Problema com ${formData.group}</h3><strong>Chamado aberto por</strong>: ${formData.name}<br>
-    <strong>Sistema com erro</strong>: ${formData.systemName} <br>
-    <strong>Nome de usuário do sistema</strong>: ${formData.userSystemName} <br>
+    return `<h3>Problema com ${formData.group}</h3><strong>Chamado aberto por</strong>: ${formData.name} <br>
     <strong>Local de Atendimento</strong>: ${formData.place} <br>
     <strong>Telefone para contato</strong>: ${formData.phone} <br>
     <strong>E-mail</strong>: ${formData.email} <br>
-    <strong>Sistema com erro</strong>: ${formData.systemName} <br>
-    <strong>Nome de usuário do sistema</strong>: ${formData.userSystemName} <br>
     <strong>Ocorrência</strong>: ${formData.occurence} <br>`;
   };
 
   const onSubmit = (formData: Ticket) => {
-    setValue('group', 'Geral');
+    setValue('group', 'Telefonia');
     const data = {
       input: {
         name: `Chamado Aberto Via Formulário para o grupo ${formData.group} (Tratar)`,
@@ -42,7 +39,7 @@ const System = () => {
         type: '1',
       },
     };
-
+    
     const config: AxiosRequestConfig = {
       method: 'POST',
       url: '/Ticket',
@@ -63,22 +60,22 @@ const System = () => {
 
   return (
     <>
-    {isLoading ? <TicketLoader /> :
-    (
-    <ContentPanel inf="PREENCHA OS DADOS ABAIXO PARA ABERTURA" cat="SISTEMAS">
-      <form onSubmit={handleSubmit(onSubmit)} className="system-form">
+    {isLoading ? <TicketLoader /> :(
+    <ContentPanel inf="PREENCHA OS DADOS ABAIXO PARA ABERTURA" cat="TELEFONIA">
+      <form onSubmit={handleSubmit(onSubmit)} className="phone-form">
         <div className="row">
           <div className="col-sm-12 col-md-6">
-            <div className="mb-2">
-              <input
-                {...register('group', {})}
-                type="text"
-                className="input-hidden"
-                placeholder="Nome do solicitante"
-                name="group"
-                value="Sistema"
-              />
-            </div>
+          <div className="mb-2">
+          <input
+            {...register('group', {
+            })}
+            type="text"
+            className="input-hidden"
+            placeholder="Nome do solicitante"
+            name="group"
+            value="Telefonia"
+          />
+        </div>
             <div className="mb-2">
               <input
                 {...register('name', {
@@ -112,6 +109,26 @@ const System = () => {
               </div>
             </div>
             <div className="mb-2">
+          <input
+            {...register('email', {
+              required: 'Campo obrigatório',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Email inválido'
+              }
+            })}
+            type="email"
+            className={`form-control base-input ${
+              errors.name ? 'is-invalid' : ''
+            }`}
+            placeholder="E-mail"
+            name="email"
+          />
+          <div className="invalid-feedback d-block">
+            {errors.email?.message}
+          </div>
+        </div>
+            <div className="mb-2">
               <input
                 {...register('place', {
                   required: 'Campo obrigatório',
@@ -130,65 +147,16 @@ const System = () => {
           </div>
           <div className="col-sm-12 col-md-6">
             <div className="right-fields">
-              <input
-                {...register('systemName', {
-                  required: 'Campo obrigatório',
-                })}
-                type="text"
-                className={`form-control base-input ${
-                  errors.name ? 'is-invalid' : ''
-                }`}
-                placeholder="Nome do sistema"
-                name="systemName"
-              />
-              <div className="invalid-feedback d-block">
-                {errors.systemName?.message}
-              </div>
+              
             </div>
-            <div className="right-fields">
-              <input
-                {...register('userSystemName', {
-                  required: 'Campo obrigatório',
-                })}
-                type="text"
-                className={`form-control base-input ${
-                  errors.name ? 'is-invalid' : ''
-                }`}
-                placeholder="Nome de usuário do sistema"
-                name="userSystemName"
-              />
-              <div className="invalid-feedback d-block">
-                {errors.userSystemName?.message}
-              </div>
-            </div>
-
-            <div className="right-fields">
-              <input
-                {...register('email', {
-                  required: 'Campo obrigatório',
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: 'Email inválido',
-                  },
-                })}
-                type="email"
-                className={`form-control base-input ${
-                  errors.name ? 'is-invalid' : ''
-                }`}
-                placeholder="E-mail para contato"
-                name="email"
-              />
-              <div className="invalid-feedback d-block">
-                {errors.email?.message}
-              </div>
-            </div>
+            
           </div>
         </div>
         <div className="row">
           <div className="col">
             <div className="mt-3">
               <span className="ocurrence-input-description">
-                Descreva o problema do sistema:
+                Descreva o problema:
               </span>
               <div className="form-floating">
                 <textarea
@@ -196,7 +164,7 @@ const System = () => {
                     required: 'Campo obrigatório',
                   })}
                   className={`form-control base-input ${
-                    errors.occurence ? 'is-invalid' : ''
+                    errors.name ? 'is-invalid' : ''
                   }`}
                   placeholder="Descreva o problema ou serviço a ser prestado."
                   id="floatingTextarea"
@@ -223,4 +191,4 @@ const System = () => {
   );
 };
 
-export default System;
+export default Telephone;

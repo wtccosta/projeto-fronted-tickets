@@ -1,0 +1,31 @@
+.end-message-content {
+  padding: 0;
+  height: 450px;
+  width: 300px;
+  margin: 10px 10px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.end-card {
+  padding: 0;
+  margin: 0;
+  height: 250px;
+  width: 100%;
+  /* padding: 10px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (min-width: 763px) {
+  .end-message-content {
+    flex: 1;
+  }
+
+  .end-card {
+    width: 600px;
+  }
+}
