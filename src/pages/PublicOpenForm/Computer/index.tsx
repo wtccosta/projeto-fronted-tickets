@@ -42,7 +42,11 @@ const Computer = () => {
       history.push('/openform/system')
       return;
     }
-    
+    if (formData.occurence.match(/internet/gmi) || formData.occurence.match(/fibra/gmi) || formData.occurence.match(/telefone/gmi) || formData.occurence.match(/linha/gmi)  || formData.occurence.match(/ramal/gmi) || formData.occurence.match(/numero/gmi) || formData.occurence.match(/número/gmi) || formData.occurence.match(/adsl/gmi) || formData.occurence.match(/conta/gmi) || formData.occurence.match(/fatura/gmi) ) {
+      alert("Use a opção \"Telefonia\" para abrir este tipo de chamado.\nVOCÊ SERÁ REDIRECIONADO!!!");
+      history.push('/openform/phone')
+      return;
+    }
     
     setValue('group', 'Geral');
     const data = {
