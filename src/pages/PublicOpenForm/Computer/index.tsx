@@ -9,6 +9,7 @@ import { removeAuthData } from 'util/storage';
 import { AuthContext } from 'util/AuthContext';
 import TicketLoader from '../TicketLoader';
 import { Ticket } from 'types/Ticket';
+import history from 'util/history';
 
 const Computer = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +23,7 @@ const Computer = () => {
   } = useForm<Ticket>();
 
   const assembleContent = (formData: Ticket) => {
+
     return `<h3>Problema para o grupo ${formData.group}</h3><strong>Chamado aberto por</strong>: ${formData.name} <br>
     <strong>Local de Atendimento</strong>: ${formData.place} <br>
     <strong>Telefone para contato</strong>: ${formData.phone} <br>
@@ -30,6 +32,18 @@ const Computer = () => {
   };
 
   const onSubmit = (formData: Ticket) => {
+    let patternImpressora = /impressora/gmi;
+    let patternSistema = /impressora/gmi;
+    if (formData.occurence.match(patternImpressora)) {
+      alert("Notei que em seu texto você menciona impressora. Ok, processaremos seu chamado. \n Mas lembramos que apenas instalamos impressoras ou a mudamos de local, não consertamos, trocamos toner ou instalamos scanners, para isso, acione a H2L. \n O número está em uma etiqueta colada no equipamento.");
+    }
+    if (formData.occurence.match(/sistema/gmi) || formData.occurence.match(/protocolo/gmi) || formData.occurence.match(/tributario/gmi) || formData.occurence.match(/tributário/gmi)  || formData.occurence.match(/atualizar/gmi) || formData.occurence.match(/atualização/gmi) || formData.occurence.match(/compras/gmi))  {
+      alert("Use a opção \"Sistemas\" para abrir este tipo de chamado. Mesmo que seja para atualização do Sistema Operacional ou Antivírus.\nNeste último Caso, no campo \"Nome do Sitema\" coloque o que deseja atualizar, Sistem Operacional ou Antivírus, em \"Nome de Usuário\", digite o usuário que usa para acessar iniciar sua sessão no computador. VOCÊ SERÁ REDIRECIONADO!!!");
+      history.push('/openform/system')
+      return;
+    }
+    
+    
     setValue('group', 'Geral');
     const data = {
       input: {
