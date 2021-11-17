@@ -67,7 +67,7 @@ const System = () => {
     (
     <ContentPanel inf="PREENCHA OS DADOS ABAIXO PARA ABERTURA" cat="SISTEMAS">
       <form onSubmit={handleSubmit(onSubmit)} className="system-form">
-        <div className="row">
+        <div className="row d-flex align-items-center">
           <div className="col-sm-12 col-md-6">
             <div className="mb-2">
               <input

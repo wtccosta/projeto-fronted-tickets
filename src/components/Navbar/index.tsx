@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
 
-
 const Navbar = () => {
   const [isAuthenticated] = useState<boolean>(false);
   return (
@@ -15,7 +14,13 @@ const Navbar = () => {
           ) : (
             <Link to="/openform">Abertura de Chamados</Link>
           )}
+          <div className="ticket-consulter-link">
+            <Link to="/ticket-consulter" className="btn btn-info text-white">
+              Consultar Chamado
+            </Link>
+          </div>
         </div>
+
         <div className="main-image-nav">
           <Link to="/">
             <img src={MainImageNav} alt="logo-pmc" />

@@ -4,6 +4,7 @@ import Navbar from 'components/Navbar';
 import history from 'util/history';
 import Footer from 'components/Footer';
 import PublicOpenForm from 'pages/PublicOpenForm';
+import TicketConsulter from 'pages/PublicOpenForm/TicketConsulter';
 
 const Routes = () => (
   <Router history={history}>
@@ -16,6 +17,9 @@ const Routes = () => (
       <Redirect from="/openform" to="/openform/info" exact />
       <Route path="/openform">
         <PublicOpenForm />
+      </Route>
+      <Route path="/ticket-consulter">
+       <TicketConsulter />
       </Route>
     </Switch>
     <Footer />

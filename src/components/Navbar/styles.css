@@ -1,38 +1,57 @@
 .nav-container {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ticket-consulter-link button {
+  font-size: 12px;
+  animation-name: blink;
+  animation-duration: 4s;
 }
 
 .nav-brand {
-    font-size: 20px
+  font-size: 18px;
+  padding: 5px;
 }
 
 .main-image-nav img {
-    display: none;
+  display: none;
 }
 
+@keyframes blink {
+    0%   {background-color: #17a2b8;}
+    25%  {background-color: rgb(36, 155, 235);}
+    50%  {background-color: rgb(54, 54, 197);}
+    100% {background-color: rgb(216, 241, 103);}
+  }
+
 @media (min-width: 480px) {
-    .nav-brand {
-        font-size: 22px
-    }
+  .nav-brand {
+    font-size: 22px;
+  }
+  .ticket-consulter-link button {
+    font-size: 18px;
+    
+  }
 }
 
 @media (min-width: 763px) {
-   
-    .nav-container {
-        justify-content: space-between;
-        padding: 5px 50px;
-    }
-    .nav-brand {
-        font-size: 1.4em
-    }
-    .main-image-nav img {
-        display: unset;
-        height: 40px;
-        width: auto;
-    }
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 50px;
+  }
+  .nav-brand {
+    font-size: 1.4em;
+  }
+  .main-image-nav img {
+    display: unset;
+    height: 40px;
+    width: auto;
+  }
 }
