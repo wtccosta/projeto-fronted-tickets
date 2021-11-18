@@ -33,7 +33,7 @@ const Computer = () => {
 
   const onSubmit = (formData: Ticket) => {
     let patternImpressora = /impressora/gmi;
-    let patternSistema = /impressora/gmi;
+    // let patternSistema = /impressora/gmi;
     if (formData.occurence.match(patternImpressora)) {
       alert("Notei que em seu texto você menciona impressora. Ok, processaremos seu chamado. \n Mas lembramos que apenas instalamos impressoras ou a mudamos de local, não consertamos, trocamos toner ou instalamos scanners, para isso, acione a H2L. \n O número está em uma etiqueta colada no equipamento.");
     }

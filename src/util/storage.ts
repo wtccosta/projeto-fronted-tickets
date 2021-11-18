@@ -4,7 +4,6 @@ const tokenKey = 'Session-Token';
 
 type LoginResponse = {
   'session-token': object;
-
 };
 
 export const saveAuthData = (obj: LoginResponse) => {
@@ -13,8 +12,7 @@ export const saveAuthData = (obj: LoginResponse) => {
 
 export const getAuthData = () => {
   const str = localStorage.getItem(tokenKey) ?? '{}';
-  console.log('STR:', str);
-  
+
   return JSON.parse(str);
 };
 

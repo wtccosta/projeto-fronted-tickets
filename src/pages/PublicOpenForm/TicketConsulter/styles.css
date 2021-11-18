@@ -1,0 +1,12 @@
+.ticket-content-table {
+    padding: 10px;
+    font-size: 10px;
+    overflow: auto;
+}
+
+@media (min-width: 468px) {
+    .ticket-content-table {
+        padding: 20px;
+        font-size: 15px;
+    }
+}

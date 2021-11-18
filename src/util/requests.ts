@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
+import { Tech } from 'types/Techs';
 import { getAuthData } from './storage';
 
 export const BASE_URL =
@@ -41,37 +42,21 @@ export const requestBackendLogin = () => {
 export const requestBackend = (config: AxiosRequestConfig) => {
   const headers = {
     ...config.headers,
-    'Session-Token': getAuthData()['session_token']
+    'Session-Token': getAuthData()['session_token'],
   };
-
-  console.log('teste', headers);
-  
 
   return axios({ ...config, baseURL: BASE_URL, headers });
 };
 
-// // Add a request interceptor
-// axios.interceptors.request.use(
-//   function (config) {
-//     //
-//     return config;
-//   },
-//   function (error) {
-//     //
-//     return Promise.reject(error);
-//   }
-// );
+export const getTech = async (id: string) => {
 
-// // Add a response interceptor
-// axios.interceptors.response.use(
-//   function (response) {
-//     //
-//     return response;
-//   },
-//   function (error) {
-//     if (error.response.status === 401) {
-//       history.push('/admin/auth');
-//     }
-//     return Promise.reject(error);
-//   }
-// );
+  const config: AxiosRequestConfig = {
+    method: 'GET',
+    url: `/User/${id}`,
+    withCredentials: false,
+  };
+  const { data } = await requestBackend(config);
+  
+  return data as Tech;  
+};
+
