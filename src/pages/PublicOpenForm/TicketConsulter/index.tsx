@@ -18,9 +18,12 @@ export type ProductFilterData = {
 
 const TicketConsulter = () => {
   const [ticketResponse, setTicketReponse] = useState<TicketGLPIResponseData>();
-  const [techNames, setTechNames] = useState<string[]>([]);
   let nameArr: Array<string> = [];
+  const handleReset = () => {
+    setTicketReponse(undefined);;
+  };
   const handleSubmitFilter = (data: TicketData) => {
+    handleReset();
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: `/search/Ticket?criteria[0][field]=2&criteria[0][searchtype]=equals&criteria[0][value]=${data.ticketId}&forcedisplay[10]=12&forcedisplay[0]=5&forcedisplay[1]=21&forcedisplay[4]=36&forcedisplay[9]=15&forcedisplay[2]=19&forcedisplay[3]=18&forcedisplay[4]=17&forcedisplay[5]=7&forcedisplay[6]=83&forcedisplay[7]=24&forcedisplay[8]=76665`,
@@ -36,7 +39,7 @@ const TicketConsulter = () => {
 
   return (
     <div className="ticket-consulter-container">
-      <SearchForm onSubmitFilter={handleSubmitFilter} />
+      <SearchForm onSubmitFilter={handleSubmitFilter} onReset={handleReset} />
       <div className="ticket-content-table">
         {ticketResponse && (
           <ul className="list-group">

@@ -1,12 +1,16 @@
+.ticket-consulter-container {
+  width: 100%;
+  margin-bottom: 100px;
+}
 .ticket-content-table {
-    padding: 10px;
-    font-size: 10px;
-    overflow: auto;
+  padding: 10px;
+  font-size: 10px;
+  overflow: auto;
 }
 
-@media (min-width: 468px) {
-    .ticket-content-table {
-        padding: 20px;
-        font-size: 15px;
-    }
+@media (min-width: 576px) {
+  .ticket-consulter-container {
+    min-height: auto;
+    margin-bottom: 50px;
+  }
 }

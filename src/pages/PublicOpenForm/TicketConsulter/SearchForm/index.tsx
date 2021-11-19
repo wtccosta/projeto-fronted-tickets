@@ -8,9 +8,10 @@ export type TicketData = {
 
 type Props = {
   onSubmitFilter: (data: TicketData) => void;
+  onReset: () => void;
 };
 
-const SearchForm = ({ onSubmitFilter }: Props) => {
+const SearchForm = ({ onSubmitFilter, onReset }: Props) => {
   const { register, handleSubmit, resetField, control } = useForm<TicketData>();
 
   const onSubmit = (formData: TicketData) => {
@@ -23,7 +24,7 @@ const SearchForm = ({ onSubmitFilter }: Props) => {
         <div className="sytem-version card">
           Versão de testes!
         </div>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-area">
           <label htmlFor="ticket'ts number" className="search-input-label">Insira o protocolo (número do chamado)</label>
           <input
             {...register('ticketId')}
@@ -34,7 +35,7 @@ const SearchForm = ({ onSubmitFilter }: Props) => {
             aria-describedby="button-addon2"
           />
           <button
-            className="btn btn-success m-2"
+            className="btn btn-success mt-2"
             type="submit"
             id="button-addon2"
           >
@@ -42,8 +43,8 @@ const SearchForm = ({ onSubmitFilter }: Props) => {
           </button>
           <button
             type="button"
-            className="btn btn-warning my-2"
-            onClick={() => resetField('ticketId', { keepTouched: true })}
+            className="btn btn-warning"
+            onClick={() => {resetField('ticketId', { keepTouched: true }); onReset();  }}
           >
             Reset
           </button>
