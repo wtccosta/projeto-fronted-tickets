@@ -18,6 +18,7 @@
     "history": "4.10.1",
     "html-react": "^0.0.18",
     "html-react-parser": "^1.4.0",
+    "moment": "^2.29.1",
     "node-sass": "4.14.1",
     "qs": "^6.10.1",
     "react": "^17.0.2",

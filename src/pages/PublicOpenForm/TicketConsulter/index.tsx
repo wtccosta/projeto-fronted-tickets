@@ -34,7 +34,8 @@ const TicketConsulter = () => {
         response.data.data[0][24] = HTMLReactParser(response.data.data[0][24]);
 
       setTicketReponse(response.data.data[0]);
-    });
+    })
+    .catch(()=>alert("Chamado não encontrado."));
   };
 
   return (
@@ -52,7 +53,7 @@ const TicketConsulter = () => {
               </ul>
             </li>
             <li className="list-group-item">
-              <strong>Abertura</strong>: {ticketResponse?.[15]}
+              <strong>Abertura</strong>: {formatDate(ticketResponse?.[15])}
             </li>
             {ticketResponse?.[12] && ticketResponse?.[12] !== '6' && (
               <li className="list-group-item">

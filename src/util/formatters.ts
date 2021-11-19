@@ -1,5 +1,7 @@
 import { Tech } from 'types/Techs';
 import { TicketGLPIResponseData } from 'types/TicketGLPIResponse';
+import moment from 'moment';
+import 'moment/locale/pt-br';
 
 export const formatPrice = (price: number) => {
   const params = { maximumFractionDigits: 2, minimumFractionDigits: 2 };
@@ -7,7 +9,8 @@ export const formatPrice = (price: number) => {
 };
 
 export const formatDate = (date: Date | string) => {
-  return new Date(date).toLocaleDateString();
+  moment.locale('pr-br');
+  return moment(date).format('llll');
 };
 
 export const getTechName = (tech: Tech): string => {
