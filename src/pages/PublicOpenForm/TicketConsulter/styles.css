@@ -14,3 +14,9 @@
     margin-bottom: 50px;
   }
 }
+
+@media (min-width: 992px) {
+  .ticket-content-table {
+    font-size: 1.2em;
+  }
+}
