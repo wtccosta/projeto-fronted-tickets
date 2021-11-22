@@ -21,7 +21,6 @@ const Accordion = ({ techsId }: Props) => {
           getTech(eachTechId)
             .then((tech) => {
               aux.push(getTechName(tech));
-              
             })
             .then(() => setTechs(aux));
         });
@@ -29,9 +28,9 @@ const Accordion = ({ techsId }: Props) => {
     }
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     getTechCallback();
-  }, [getTechCallback])
+  }, [getTechCallback]);
 
   return (
     <div className="accordion" id="accordionExample">
@@ -45,7 +44,7 @@ const Accordion = ({ techsId }: Props) => {
             aria-expanded="true"
             aria-controls="collapseOne"
           >
-            {techsId ? 'Técnico Responsável' : 'Não há técnicos escalados'}
+            {(techsId && (techsId !== '1999')) ? 'Técnico Responsável' : 'Não há técnicos escalados'}
           </button>
         </h2>
         <div
@@ -57,9 +56,8 @@ const Accordion = ({ techsId }: Props) => {
           {techsId && (
             <div className="accordion-body">
               <ul>
-                {' '}
                 {techs.map((tech) => (
-                  <li>{tech}</li>
+                  <li key="techsId">{tech}</li>
                 ))}
               </ul>
             </div>

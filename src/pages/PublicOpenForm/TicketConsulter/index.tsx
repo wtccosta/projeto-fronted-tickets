@@ -18,7 +18,6 @@ export type ProductFilterData = {
 
 const TicketConsulter = () => {
   const [ticketResponse, setTicketReponse] = useState<TicketGLPIResponseData>();
-  let nameArr: Array<string> = [];
   const handleReset = () => {
     setTicketReponse(undefined);;
   };

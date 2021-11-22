@@ -14,6 +14,7 @@ export const formatDate = (date: Date | string) => {
 };
 
 export const getTechName = (tech: Tech): string => {
+  if ( tech.id === 1999 ) return '';
   return `${tech.firstname} ${tech.realname}`;
 };
 

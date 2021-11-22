@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+.search-input-wrap > form {
+  width: 100%;
+}
+
 .input-area{
   display: flex;
   flex-direction: column;
@@ -57,7 +61,11 @@ input:focus {
   .search-input-wrap {
     display: flex;
     flex-direction: row !important;
+    justify-content: center;
     width: 100%;
+  }
+  .search-input-wrap > form{
+    width: 500px;
   }
   .input-area{
     display: flex;

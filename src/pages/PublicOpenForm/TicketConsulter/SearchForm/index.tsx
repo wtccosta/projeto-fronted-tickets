@@ -12,7 +12,7 @@ type Props = {
 };
 
 const SearchForm = ({ onSubmitFilter, onReset }: Props) => {
-  const { register, handleSubmit, resetField, control } = useForm<TicketData>();
+  const { register, handleSubmit, resetField } = useForm<TicketData>();
 
   const onSubmit = (formData: TicketData) => {
     onSubmitFilter(formData);
