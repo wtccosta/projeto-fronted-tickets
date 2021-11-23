@@ -21,9 +21,9 @@ const SearchForm = ({ onSubmitFilter, onReset }: Props) => {
   return (
     <div className="search-input-wrap">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="sytem-version card">
+        {/* <div className="sytem-version card">
           Versão de testes!
-        </div>
+        </div> */}
         <div className="input-group mb-3 input-area">
           <label htmlFor="ticket'ts number" className="search-input-label">Insira o protocolo (número do chamado)</label>
           <input

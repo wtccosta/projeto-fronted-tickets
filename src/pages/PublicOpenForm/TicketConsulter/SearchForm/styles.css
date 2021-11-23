@@ -8,21 +8,26 @@
   width: 100%;
 }
 
-.input-area{
+.input-area {
   display: flex;
   flex-direction: column;
 }
 
-.input-area .form-control{
+.input-area .form-control {
   width: 100%;
   background-color: #fff;
+  border-radius: 5px !important;
 }
 
-.input-area .form-control input:focus{
+.input-area .form-control input:focus {
   box-shadow: none;
 }
 
-.input-area > .btn-warning{
+.input-area > .btn {
+  border-radius: 5px !important;
+}
+
+.input-area > .btn-warning {
   margin-top: 10px;
 }
 
@@ -30,17 +35,16 @@
 input:focus {
   
 } */
-.sytem-version{
-    padding: 10px;
-    text-align: center;
-    width: auto;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 12px;
-    color: rgb(112, 100, 100);
-    border: 2px solid rgb(122, 118, 118);
+.sytem-version {
+  padding: 10px;
+  text-align: center;
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: rgb(112, 100, 100);
+  border: 2px solid rgb(122, 118, 118);
 }
-
 
 @media (min-width: 345px) {
   .search-input-label {
@@ -53,8 +57,6 @@ input:focus {
     /* min-width: 400 px; */
     padding: 40px;
   }
-
-  
 }
 
 @media (min-width: 580px) {
@@ -64,10 +66,10 @@ input:focus {
     justify-content: center;
     width: 100%;
   }
-  .search-input-wrap > form{
+  .search-input-wrap > form {
     width: 500px;
   }
-  .input-area{
+  .input-area {
     display: flex;
     flex-direction: row;
   }
