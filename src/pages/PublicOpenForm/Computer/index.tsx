@@ -42,7 +42,7 @@ const Computer = () => {
         'Notei que em seu texto você menciona impressora. Ok, processaremos seu chamado. \n Mas lembramos que apenas instalamos impressoras ou a mudamos de local, não consertamos, trocamos toner ou instalamos scanners, para isso, acione a H2L. \n O número está em uma etiqueta colada no equipamento.',
         {
           position: 'top-center',
-          autoClose: 5000,
+          autoClose: 9000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -64,7 +64,7 @@ const Computer = () => {
         'Use a opção "Sistemas" para abrir este tipo de chamado. Mesmo que seja para atualização do Sistema Operacional ou Antivírus.\nNeste último Caso, no campo "Nome do Sitema" coloque o que deseja atualizar, Sistem Operacional ou Antivírus, em "Nome de Usuário", digite o usuário que usa para acessar iniciar sua sessão no computador. VOCÊ SERÁ REDIRECIONADO!!!',
         {
           position: 'top-center',
-          autoClose: 5000,
+          autoClose: 9000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -91,7 +91,7 @@ const Computer = () => {
         'Use a opção "Telefonia" para abrir este tipo de chamado.\nVOCÊ SERÁ REDIRECIONADO!!!',
         {
           position: 'top-center',
-          autoClose: 5000,
+          autoClose: 9000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
