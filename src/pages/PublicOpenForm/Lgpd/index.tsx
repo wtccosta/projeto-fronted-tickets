@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 
 import './styles.css';
 
-const Computer = () => {
+const Lgpd = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { setAuthContextData } = useContext(AuthContext);
 
@@ -33,83 +33,10 @@ const Computer = () => {
   };
 
   const onSubmit = (formData: Ticket) => {
-    let patternImpressora = /impressora/gim;
-    // let patternSistema = /impressora/gmi;
-    if (formData.occurence.match(patternImpressora)) {
-      // alert("Notei que em seu texto você menciona impressora. Ok, processaremos seu chamado. \n Mas lembramos que apenas instalamos impressoras ou a mudamos de local, não consertamos, trocamos toner ou instalamos scanners, para isso, acione a H2L. \n O número está em uma etiqueta colada no equipamento.");
+   
 
-      toast.warning(
-        'Notei que em seu texto você menciona impressora. Ok, processaremos seu chamado. \n Mas lembramos que apenas instalamos impressoras ou a mudamos de local, não consertamos, trocamos toner ou instalamos scanners, para isso, acione a H2L. \n O número está em uma etiqueta colada no equipamento.',
-        {
-          position: 'top-center',
-          autoClose: 9000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }
-      );
-    }
-    if (
-      formData.occurence.match(/sistema/gim) ||
-      formData.occurence.match(/protocolo/gim) ||
-      formData.occurence.match(/tributario/gim) ||
-      formData.occurence.match(/tributário/gim) ||
-      formData.occurence.match(/atualizar/gim) ||
-      formData.occurence.match(/atualização/gim) ||
-      formData.occurence.match(/compras/gim) ||
-      formData.occurence.match(/spci/gim) ||
-      formData.occurence.match(/gsea/gim) ||
-      formData.occurence.match(/tagnos/gim) ||
-      formData.occurence.match(/tdr/gim) ||
-      formData.occurence.match(/fiorilli/gim) ||
-      formData.occurence.match(/sip/gim)
-    ) {
-      toast.warning(
-        'Use a opção "Sistemas" para abrir este tipo de chamado. Mesmo que seja para atualização do Sistema Operacional ou Antivírus.\nNeste último Caso, no campo "Nome do Sitema" coloque o que deseja atualizar, Sistem Operacional ou Antivírus, em "Nome de Usuário", digite o usuário que usa para acessar iniciar sua sessão no computador. VOCÊ SERÁ REDIRECIONADO!!!',
-        {
-          position: 'top-center',
-          autoClose: 9000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }
-      );
-      history.push('/openform/system');
-      return;
-    }
-    if (
-      formData.occurence.match(/internet/gim) ||
-      formData.occurence.match(/fibra/gim) ||
-      formData.occurence.match(/telefone/gim) ||
-      formData.occurence.match(/linha/gim) ||
-      formData.occurence.match(/ramal/gim) ||
-      formData.occurence.match(/numero/gim) ||
-      formData.occurence.match(/número/gim) ||
-      formData.occurence.match(/adsl/gim) ||
-      formData.occurence.match(/conta/gim) ||
-      formData.occurence.match(/fatura/gim)
-    ) {
-      toast.warning(
-        'Use a opção "Telefonia" para abrir este tipo de chamado.\nVOCÊ SERÁ REDIRECIONADO!!!',
-        {
-          position: 'top-center',
-          autoClose: 9000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }
-      );
-      history.push('/openform/phone');
-      return;
-    }
-
-    setValue('group', 'Geral');
+    setValue('group', 'Lgpd');
+    setValue('place', 'Lgpd');
     const data = {
       input: {
         name: `Chamado Aberto Via Formulário para o grupo ${formData.group} (Tratar)`,
@@ -144,7 +71,7 @@ const Computer = () => {
       ) : (
         <ContentPanel
           inf="PREENCHA OS DADOS ABAIXO PARA ABERTURA"
-          cat="COMPUTADOR"
+          cat="Lei Geral de Proteção aos Dados"
         >
           <form onSubmit={handleSubmit(onSubmit)} className="computer-form">
             <div className="mb-2">
@@ -154,7 +81,7 @@ const Computer = () => {
                 className="input-hidden"
                 placeholder="Nome do solicitante"
                 name="group"
-                value="Geral"
+                value="LGPD"
               />
             </div>
             <div className="mb-2">
@@ -211,15 +138,14 @@ const Computer = () => {
             </div>
             <div className="mb-2">
               <input
-                {...register('place', {
-                  required: 'Campo obrigatório',
-                })}
+                {...register('place')}
                 type="text"
-                className={`form-control base-input ${
+                className={`form-control base-input hidden ${
                   errors.name ? 'is-invalid' : ''
                 }`}
                 placeholder="Local para atendimento"
                 name="place"
+                value="LGPD"
               />
               <div className="invalid-feedback d-block">
                 {errors.place?.message}
@@ -227,7 +153,7 @@ const Computer = () => {
             </div>
             <div className="mt-3">
               <span className="ocurrence-input-description">
-                Descreva o problema do seu equipamento:
+                Descreva sua solicitação:
               </span>
               <div className="form-floating">
                 <textarea
@@ -261,4 +187,4 @@ const Computer = () => {
   );
 };
 
-export default Computer;
+export default Lgpd;

@@ -30,6 +30,11 @@ const Navbar = () =>{
               <p>Infraestrutura</p>
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/openform/lgpd" className="admin-nav-item">
+              <p>LGPD</p>
+            </NavLink>
+          </li>
         </ul>
       </nav>
     );

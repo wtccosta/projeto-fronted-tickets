@@ -13,6 +13,7 @@ import { AuthContext } from 'util/AuthContext';
 import EndMessage from './EndMessage';
 import Telephone from './Telephone';
 import Infraestructure from './Infraestructure';
+import Lgpd from './Lgpd';
 
 
 const PublicOpenForm = () => {
@@ -56,6 +57,9 @@ const PublicOpenForm = () => {
         </Route>
         <Route path="/openform/infraestruture">
           <Infraestructure />
+        </Route>
+        <Route path="/openform/lgpd">
+          <Lgpd />
         </Route>
       </Switch>
       </div>

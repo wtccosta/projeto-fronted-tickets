@@ -1,0 +1,43 @@
+.input-hidden{
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-area {
+    width: 400px;
+}
+
+label {
+    color: #000;
+}
+
+.ocurrence-input-description {
+    font-size: 10px;
+}
+
+/* Hidden number input scroll on Chrome 
+and others */
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.btn {
+   margin: 0 5px; 
+}
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+@media (min-width: 476px) {
+    .ocurrence-input-description {
+        font-size: 15px;
+    }
+}
